@@ -1,0 +1,26 @@
+{
+  "name": "smart-chat",
+  "version": "0.1.0",
+  "description": "Build on-chain logic into off-chain communication tools",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/open-tribe/smart-chat.git"
+  },
+  "keywords": [
+    "smart",
+    "contract",
+    "chat",
+    "communication",
+    "blockchain"
+  ],
+  "author": "think-in-universe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/open-tribe/smart-chat/issues"
+  },
+  "homepage": "https://github.com/open-tribe/smart-chat#readme"
+}
