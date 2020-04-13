@@ -22,5 +22,10 @@
   "bugs": {
     "url": "https://github.com/open-tribe/smart-chat/issues"
   },
-  "homepage": "https://github.com/open-tribe/smart-chat#readme"
+  "homepage": "https://github.com/open-tribe/smart-chat#readme",
+  "dependencies": {
+    "3box": "^1.17.1",
+    "3box-chatbox-react": "^0.1.7",
+    "react": "^16.13.1"
+  }
 }
