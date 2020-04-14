@@ -1,5 +1,5 @@
 {
-  "name": "smart-chat",
+  "name": "smart-chat-react",
   "version": "0.1.0",
   "description": "Build on-chain logic into off-chain communication tools",
   "main": "./lib/index.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/open-tribe/smart-chat.git"
+    "url": "git+https://github.com/open-tribe/smart-chat-react.git"
   },
   "keywords": [
     "smart",
@@ -22,9 +22,9 @@
   "author": "think-in-universe",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/open-tribe/smart-chat/issues"
+    "url": "https://github.com/open-tribe/smart-chat-react/issues"
   },
-  "homepage": "https://github.com/open-tribe/smart-chat#readme",
+  "homepage": "https://github.com/open-tribe/smart-chat-react#readme",
   "dependencies": {
     "3box": "^1.17.1",
     "3box-chatbox-react": "^0.1.7",
