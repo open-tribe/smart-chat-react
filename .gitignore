@@ -1,5 +1,12 @@
 node_modules
+dist/*.js
+lib/*
+# examples/dist/*.js removed, required for pages
+coverage
 
 # lock files
 package-lock.json
 yarn.lock
+
+# others
+yarn-error.log
