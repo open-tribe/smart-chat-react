@@ -28,7 +28,9 @@
     "3box": "^1.17.1",
     "3box-chatbox-react": "^0.1.7",
     "react": "^16.13.1",
-    "webpack": "^4.9.1"
+    "webpack": "^4.9.1",
+    "react-dom": "^16.6.0",
+    "react-hot-loader": "^4.12.18"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
