@@ -2,9 +2,10 @@
   "name": "smart-chat",
   "version": "0.1.0",
   "description": "Build on-chain logic into off-chain communication tools",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "scripts": {
     "build": "webpack --config webpack.config.babel.js",
+    "build:es5": "rm -rf ./lib; ./node_modules/.bin/babel src --out-dir lib --source-maps inline --copy-files --ignore=src/__tests__/,src/__mocks__/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
