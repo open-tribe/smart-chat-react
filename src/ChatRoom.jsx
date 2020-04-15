@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '3box';
 
-import ChatBox from '3box-chatbox-react';
+import ChatBox from '3box-chatbox-react-enhanced';
 
 class ChatRoom extends React.Component {
   constructor(props) {
@@ -11,19 +11,25 @@ class ChatRoom extends React.Component {
       myProfile: {},
       myAddress: '',
       isReady: false,
+      members: [],
+      moderators: []
     }
   }
 
   componentDidMount() {
     // this.handleLogin();
     window.smart_chat = this;
+    this.filterMembers();
+    this.filterModerators();
   }
 
   handleLogin = async () => {
     const addresses = await window.ethereum.enable();
     const myAddress = addresses[0];
 
-    if (this.allowJoin(myAddress)) {
+    const allowed = await this.allowJoin(myAddress);
+
+    if (allowed) {
       const box = await Box.openBox(myAddress, window.ethereum, {});
       const myProfile = await Box.getProfile(myAddress);
 
@@ -35,8 +41,36 @@ class ChatRoom extends React.Component {
   allowJoin = async (address) => {
     const { canJoin } = this.props;
     if (canJoin) {
-      const { contract, method } = canAttend;
-      return await contract.methods[method](address).call()
+      const { contract, method } = canJoin;
+      return await contract.methods[method](address).call();
+    } else {
+      return false;
+    }
+  }
+
+  allowModeration = async (address) => {
+    const { canModerate } = this.props;
+    if (canModerate) {
+      const { contract, method } = canModerate;
+      return await contract.methods[method](address).call();
+    } else {
+      return false;
+    }
+  }
+
+  filterMembers() {
+    let { members } = this.props;
+    if (members && members.length > 0) {
+      members = members.filter(m => this.allowJoin(m));
+      this.setState({ members });
+    }
+  }
+
+  filterModerators() {
+    let { moderators } = this.props;
+    if (moderators && moderators.length > 0) {
+      moderators = moderators.filter(m => this.allowModeration(m));
+      this.setState({ moderators });
     }
   }
 
@@ -61,12 +95,15 @@ class ChatRoom extends React.Component {
       box,
       myAddress,
       myProfile,
-      isReady
+      isReady,
+      members,
+      moderators
     } = this.state;
 
     const {
       appName,
       channelName,
+      organizer
     } = this.props;
 
     return (
@@ -96,8 +133,14 @@ class ChatRoom extends React.Component {
       // threadOpts={{}}
       // spaceOpts={{}}
       // useHovers={true}
-      // currentUser3BoxProfile={myProfile}
+      currentUser3BoxProfile={myProfile}
       // userProfileURL={(address) => `https://userprofiles.co/user/${address}`}
+
+        // persistent
+        persistent
+        firstModerator={organizer}
+        members={members}
+        moderators={moderators}
       />
     );
   }

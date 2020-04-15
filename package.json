@@ -6,6 +6,8 @@
   "scripts": {
     "build": "webpack --config webpack.config.babel.js",
     "build:es5": "rm -rf ./lib; ./node_modules/.bin/babel src --out-dir lib --source-maps inline --copy-files --ignore=src/__tests__/,src/__mocks__/",
+    "clean": "rm -rf dist",
+    "prepublish": "npm run clean && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,11 +29,11 @@
   "homepage": "https://github.com/open-tribe/smart-chat-react#readme",
   "dependencies": {
     "3box": "^1.17.1",
-    "3box-chatbox-react": "^0.1.7",
+    "3box-chatbox-react-enhanced": "^0.1.9",
     "react": "^16.13.1",
-    "webpack": "^4.9.1",
     "react-dom": "^16.6.0",
-    "react-hot-loader": "^4.12.18"
+    "react-hot-loader": "^4.12.18",
+    "webpack": "^4.9.1"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
