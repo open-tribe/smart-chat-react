@@ -17,8 +17,11 @@ class ChatRoom extends React.Component {
   }
 
   componentDidMount() {
-    // this.handleLogin();
     window.smart_chat = this;
+    this.handleLogin();
+  }
+
+  componentWillReceiveProps() {
     this.filterMembers();
     this.filterModerators();
   }
@@ -27,12 +30,9 @@ class ChatRoom extends React.Component {
     const addresses = await window.ethereum.enable();
     const myAddress = addresses[0];
 
-    const allowed = await this.allowJoin(myAddress);
-
-    if (allowed) {
-      const box = await Box.openBox(myAddress, window.ethereum, {});
+    const box = await Box.openBox(myAddress, window.ethereum, {});
+    if (box) {
       const myProfile = await Box.getProfile(myAddress);
-
       box.onSyncDone(() => this.setState({ box }));
       this.setState({ box, myProfile, myAddress, isReady: true });
     }
@@ -133,7 +133,7 @@ class ChatRoom extends React.Component {
       // threadOpts={{}}
       // spaceOpts={{}}
       // useHovers={true}
-      currentUser3BoxProfile={myProfile}
+      // currentUser3BoxProfile={myProfile}
       // userProfileURL={(address) => `https://userprofiles.co/user/${address}`}
 
         // persistent

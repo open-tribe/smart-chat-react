@@ -1,13 +1,13 @@
 {
   "name": "smart-chat-react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Build on-chain logic into off-chain communication tools",
   "main": "./lib/index.js",
   "scripts": {
     "build": "webpack --config webpack.config.babel.js",
     "build:es5": "rm -rf ./lib; ./node_modules/.bin/babel src --out-dir lib --source-maps inline --copy-files --ignore=src/__tests__/,src/__mocks__/",
     "clean": "rm -rf dist",
-    "prepublish": "npm run clean && npm run build",
+    "prepare": "npm run clean && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
