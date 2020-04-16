@@ -84,7 +84,6 @@ const Chat = props => {
 | `members`    | Array of ETH Address         |   | Optional   | The members of a chat will be added if provided. |
 | `moderators`    | Array of ETH Address         |   | Optional   | The moderators of a chat will be added if provided. |
 | `secret`    | Boolean       |  False   | Optional    | A boolean - `true` - to make the chat content only visible to its members. False will make the chat visible to everyone. |
-
 | `colorTheme`    | String/Boolean       |  False  | Optional    | Pass an rgb or hex color string to match the color theme of your application |
 | `popup`    | Boolean       |  False   | Optional    | A boolean - `true` - to configure a pop up style chatbox with a button fixed to the bottom right of the window to pop open the chat UI. False will render the component in whichever container you have implemented. |
 | `iconUrl`    | String       |    | Optional    | Set the icon for the chat window |
