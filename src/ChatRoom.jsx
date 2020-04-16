@@ -103,8 +103,16 @@ class ChatRoom extends React.Component {
     const {
       appName,
       channelName,
-      organizer
+      organizer,
+      popup,
+      colorTheme,
+      iconUrl
     } = this.props;
+
+    const agentProfile = {
+      chatName: appName,
+      imageUrl: iconUrl
+    }
 
     return (
       <ChatBox
@@ -128,7 +136,9 @@ class ChatRoom extends React.Component {
         // optional
         // mute
         openOnMount
-        popupChat
+        popupChat={popup}
+        showEmoji
+        colorTheme={colorTheme}
       // colorTheme="#1168df"
       // threadOpts={{}}
       // spaceOpts={{}}
@@ -141,6 +151,7 @@ class ChatRoom extends React.Component {
         firstModerator={organizer}
         members={members}
         moderators={moderators}
+        agentProfile={agentProfile}
       />
     );
   }
