@@ -20,9 +20,6 @@ smart-chat-react is a Chat React component, built with the [3box-chatbox](https:
 npm i -S smart-chat-react
 ```
 
-</br>
-</br>
-
 
 ### 2. Use the component
 
@@ -81,15 +78,16 @@ const Chat = props => {
 | :-------------------------------- | :-------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `appName`    | String        |    |  Always   |  The name of the dApp, which will be used as the 3Box space name by default. |
 | `channelName`    | String       |   | Always    | A unique ID/name for this chat |
+| `organizer`    | ETH Address         |   | Always   | The organizer of the chat, which will be used as the firstModerator parameter for a [Persistent Thread](https://docs.3box.io/build/web-apps/messaging/persistent-threads) in 3Box |
 | `canJoin`    | Object         |   | Always   | The `contract` and `method` for verifying whether an account can join the chat or not |
 | `canModerate`    | Object         |   | Always   | The `contract` and `method` to verifying whether an account can join as a moderator/admin of the chat |
-| `organizer`    | ETH Address         |   | Always   | The organizer of the chat, which will be used as the firstModerator parameter for a [Persistent Thread](https://docs.3box.io/build/web-apps/messaging/persistent-threads) in 3Box |
 | `members`    | Array of ETH Address         |   | Optional   | The members of a chat will be added if provided. |
 | `moderators`    | Array of ETH Address         |   | Optional   | The moderators of a chat will be added if provided. |
-| `colorTheme`    | String/Boolean       |  False  | Optional    | Pass an rgb or hex color string to match the color theme of your application |
-| `iconUrl`    | String       |    | Optional    | Set the icon for the chat window |
-| `popup`    | Boolean       |  False   | Optional    | A boolean - `true` - to configure a pop up style chatbox with a button fixed to the bottom right of the window to pop open the chat UI. False will render the component in whichever container you have implemented. |
 | `secret`    | Boolean       |  False   | Optional    | A boolean - `true` - to make the chat content only visible to its members. False will make the chat visible to everyone. |
+
+| `colorTheme`    | String/Boolean       |  False  | Optional    | Pass an rgb or hex color string to match the color theme of your application |
+| `popup`    | Boolean       |  False   | Optional    | A boolean - `true` - to configure a pop up style chatbox with a button fixed to the bottom right of the window to pop open the chat UI. False will render the component in whichever container you have implemented. |
+| `iconUrl`    | String       |    | Optional    | Set the icon for the chat window |
 
 ### 3. Chat APIs
 
