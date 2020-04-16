@@ -35,6 +35,8 @@ class ChatRoom extends React.Component {
       const myProfile = await Box.getProfile(myAddress);
       box.onSyncDone(() => this.setState({ box }));
       this.setState({ box, myProfile, myAddress, isReady: true });
+    } else {
+      this.setState({ myAddress });
     }
   }
 
@@ -106,12 +108,17 @@ class ChatRoom extends React.Component {
       organizer,
       popup,
       colorTheme,
-      iconUrl
+      iconUrl,
+      secret
     } = this.props;
 
     const agentProfile = {
       chatName: appName,
       imageUrl: iconUrl
+    }
+
+    if (secret && !members.includes(myAddress)) {
+      return <div></div>
     }
 
     return (
