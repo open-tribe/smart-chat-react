@@ -1,8 +1,8 @@
 import ChatRoom from './ChatRoom';
-import { getThread } from './chat';
+import { getChat } from './chat';
 
 export default ChatRoom;
 
 export {
-  getThread
+  getChat
 };
