@@ -4,6 +4,12 @@ A Chat System SDK With On Chain Access Control List.
 
 Built on top of [3Box](https://docs.3box.io/), and enfources smart contract logic for ACL.
 
+[![npm](https://img.shields.io/npm/v/smart-chat-react.svg?style=for-the-badge)](https://www.npmjs.com/package/smart-chat-react)
+
+![Example Screenshot](https://user-images.githubusercontent.com/46699230/79453919-f240e400-801c-11ea-8688-54d7ab4a512b.png)
+
+<br />
+
 ## smart-chat-react
 
 smart-chat-react is a Chat React component, built with the [3box-chatbox](https://github.com/open-tribe/3box-chatbox-react), and support smart contract functions to filter the members / moderators.
