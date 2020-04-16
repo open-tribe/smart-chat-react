@@ -8,6 +8,7 @@
     "build:es5": "rm -rf ./lib; ./node_modules/.bin/babel src --out-dir lib --source-maps inline --copy-files --ignore=src/__tests__/,src/__mocks__/",
     "clean": "rm -rf dist",
     "prepare": "npm run clean && npm run build",
+    "start": "webpack-dev-server --config examples/webpack.config.live.babel.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -45,12 +46,13 @@
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
     "clean-webpack-plugin": "^0.1.16",
-    "webpack-cli": "^3.3.11",
-    "svg-inline-loader": "^0.8.0",
     "css-loader": "^1.0.1",
     "file-loader": "^4.2.0",
     "react-hot-loader": "^4.12.18",
     "sass-loader": "^7.0.1",
-    "style-loader": "^0.23.1"
+    "style-loader": "^0.23.1",
+    "svg-inline-loader": "^0.8.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
   }
 }
