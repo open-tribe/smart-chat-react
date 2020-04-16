@@ -29,7 +29,7 @@
   "homepage": "https://github.com/open-tribe/smart-chat-react#readme",
   "dependencies": {
     "3box": "^1.17.1",
-    "3box-chatbox-react-enhanced": "^0.1.9",
+    "3box-chatbox-react-enhanced": "^0.1.11",
     "react": "^16.13.1",
     "react-dom": "^16.6.0",
     "react-hot-loader": "^4.12.18",
