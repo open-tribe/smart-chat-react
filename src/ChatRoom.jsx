@@ -7,7 +7,7 @@ class ChatRoom extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // box: {},
+      box: {},
       myProfile: {},
       myAddress: '',
       isReady: false,
