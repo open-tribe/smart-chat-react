@@ -2,6 +2,7 @@ import React from 'react';
 import Box from '3box';
 
 import ChatBox from '3box-chatbox-react-enhanced';
+import { filter } from './helper'
 
 class ChatRoom extends React.Component {
   constructor(props) {
@@ -16,12 +17,14 @@ class ChatRoom extends React.Component {
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     window.smart_chat = this;
     this.handleLogin();
+    this.filterMembers();
+    this.filterModerators();
   }
 
-  componentWillReceiveProps() {
+  async componentWillReceiveProps() {
     this.filterMembers();
     this.filterModerators();
   }
@@ -60,18 +63,18 @@ class ChatRoom extends React.Component {
     }
   }
 
-  filterMembers() {
+  filterMembers = async () => {
     let { members } = this.props;
     if (members && members.length > 0) {
-      members = members.filter(m => this.allowJoin(m));
+      members = await filter(members, async m => await this.allowJoin(m));
       this.setState({ members });
     }
   }
 
-  filterModerators() {
+  filterModerators = async () => {
     let { moderators } = this.props;
     if (moderators && moderators.length > 0) {
-      moderators = moderators.filter(m => this.allowModeration(m));
+      moderators = await filter(moderators, async m => await this.allowModeration(m));
       this.setState({ moderators });
     }
   }
