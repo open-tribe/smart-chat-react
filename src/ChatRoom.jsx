@@ -19,7 +19,7 @@ class ChatRoom extends React.Component {
 
   async componentDidMount() {
     window.smart_chat = this;
-    this.handleLogin();
+    // this.handleLogin();
     this.filterMembers();
     this.filterModerators();
   }
