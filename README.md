@@ -97,7 +97,7 @@ const Chat = props => {
 
 ### 3. Chat APIs
 
-Here we support the APIs for listing members and moderators of a chat. See the example below.
+Here we support the APIs in both browser or node.js environment, for listing members and moderators of a chat. See the example below.
 
 Let me know if you'd like to add more interfaces such as add members or moderators, which now are only supported via the React components.
 
