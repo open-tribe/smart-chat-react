@@ -20,6 +20,7 @@ class ChatRoom extends React.Component {
   async componentDidMount() {
     window.smart_chat = this;
     // this.handleLogin();
+    this.updateAddress();
     this.filterMembers();
     this.filterModerators();
   }
@@ -38,9 +39,13 @@ class ChatRoom extends React.Component {
       const myProfile = await Box.getProfile(myAddress);
       box.onSyncDone(() => this.setState({ box }));
       this.setState({ box, myProfile, myAddress, isReady: true });
-    } else {
-      this.setState({ myAddress });
     }
+  }
+
+  updateAddress = async () => {
+    const addresses = await window.ethereum.enable();
+    const myAddress = addresses[0];
+    this.setState({ myAddress });
   }
 
   allowJoin = async (address) => {
