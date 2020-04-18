@@ -11,6 +11,14 @@ Built on top of [3Box](https://docs.3box.io/), and enfources smart contract logi
 
 <br />
 
+### Chat Access Control with Smart Contract
+
+Smart Chat by default uses [Persistent Thread](https://docs.3box.io/build/web-apps/messaging/persistent-threads) to preserve the chat history, and control the permission of members and moderators. The messages in the chat will sustain unless the moderators delete them. By integrating smart contracts into the thread, it enforces on-chain ACL into a Chat System for your DApp, DAO, events, projects and teams.
+
+We'll also extend the support to [Ghost Thread](https://docs.3box.io/build/web-apps/messaging/ghost-threads), and Confidential Thread, and keep the access control with smart contract.
+
+
+
 ## smart-chat-react
 
 smart-chat-react is a Chat React component, built with the [3box-chatbox](https://github.com/open-tribe/3box-chatbox-react), and support smart contract functions to filter the members / moderators.
