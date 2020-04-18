@@ -7,7 +7,7 @@ A Chat System SDK With On Chain Access Control List.
 Built on top of [3Box](https://docs.3box.io/), and enfources smart contract logic for ACL.
 
 ### Try the demo [here](https://kickback-app-live-q4d2ow5zo.now.sh/event/0x545a09f0348dd3632809c13ab3b062c7f8542c8d)
-![Example Screenshot](https://user-images.githubusercontent.com/46699230/79610562-56ea6480-812b-11ea-91bf-b184b80ff621.png)
+![Example Screenshot](https://user-images.githubusercontent.com/46699230/79636618-a83a3880-81ab-11ea-9ba8-4ffed9cc95d8.png)
 
 <br />
 
