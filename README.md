@@ -124,13 +124,12 @@ const chat = await getChat(appName, channelName, organizer)
 const members = await chat.listMembers()
 const moderaors = await chat.listModerators()
 
-const posts = await chat.getPosts()
+let posts = await chat.getPosts()
 console.log(posts)
 
 // you can also specify a number of posts you want
-const posts = await chat.getPosts(20)
+posts = await chat.getPosts(20)
 console.log(posts)
-
 ```
 
 
