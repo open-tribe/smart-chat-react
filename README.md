@@ -21,13 +21,16 @@ We'll also extend the support to [Ghost Thread](https://docs.3box.io/build/web-a
 
 ## smart-chat-react
 
-smart-chat-react is a Chat React component, built with the [3box-chatbox](https://github.com/open-tribe/3box-chatbox-react), and support smart contract functions to filter the members / moderators.
+smart-chat-react provides:
+
+1. a Chat React component called `ChatRoom`, built with the [3box-chatbox](https://github.com/open-tribe/3box-chatbox-react), and natively invoke smart contract functions to filter the members / moderators.
+2. Chat APIs for listing members and moderators, getting posts, post messages, etc. (We may move chat APIs into a separate project later)
 
 ## Getting Started
 
 1. Install the component
 2. Use the component
-3. Chat APIs
+3. Use chat APIs
 
 ### 1. Install the component
 
@@ -103,9 +106,11 @@ const Chat = props => {
 | `popup`    | Boolean       |  False   | Optional    | A boolean - `true` - to configure a pop up style chatbox with a button fixed to the bottom right of the window to pop open the chat UI. False will render the component in whichever container you have implemented. |
 | `iconUrl`    | String       |    | Optional    | Set the icon for the chat window |
 
-### 3. Chat APIs
+### 3. Use chat APIs
 
-Here we support the APIs in both browser and node.js environment, for listing members and moderators of a chat. See the example below.
+Here we support the APIs in both browser and node.js environment, for listing members and moderators of a chat, getting posts, etc. See the example below.
+
+You can even build a chatbot based on the chat APIs. Will add a chatbot example later.
 
 Let me know if you'd like to add more interfaces such as add members or moderators, which now are only supported via the React components.
 
@@ -117,8 +122,14 @@ import { getChat } from 'smart-chat-react';
 const chat = await getChat(appName, channelName, organizer)
 
 const members = await chat.listMembers()
-
 const moderaors = await chat.listModerators()
+
+const posts = await chat.getPosts()
+console.log(posts)
+
+// you can also specify a number of posts you want
+const posts = await chat.getPosts(20)
+console.log(posts)
 
 ```
 
