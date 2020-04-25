@@ -132,6 +132,24 @@ posts = await chat.getPosts(20)
 console.log(posts)
 ```
 
+You can also fetch the chat history in Browser in real time, without providing the `appName`, `channelName` and `organizer` parametes.
+
+```js
+let posts = await window.smart_window.getChatHistory();
+console.log(posts);
+
+// you can also specify a number of posts you want
+posts = await window.smart_window.getChatHistory(20);
+console.log(posts)
+```
+
+An example of chat history:
+
+```json
+{"postId": "zdpuAn2kLrHLMAF4s3ds8WdGzNDLdqQRMF7cfma4hyuVgivYm", "author": "did:3:bafyre...", "message": "hello", "timestamp": 1587051150, "address": "0xf4398..."}
+{"postId": "zdpuAnAVvRyR2zoCZn9xps2ksoLHshanA874ereMixLqspPcS", "author": "did:3:bafyre...", "message": "how are you", "timestamp": 1587051155, "address": "0xf4398..."}
+{"postId": "zdpuAmz7sQpvjyvCmQbpjtyALE29VA5AWvFtB9GndPEBjMTCN", "author": "did:3:bafhij...", "message": "awesome", "timestamp": 1587051171, "address": "0xghe3w..."}
+```
 
 ## License
 

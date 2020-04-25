@@ -2,7 +2,8 @@ import React from 'react';
 import Box from '3box';
 
 import ChatBox from '3box-chatbox-react-enhanced';
-import { filter } from './helper'
+import { filter } from './helper';
+import { decorateHistory } from './chat';
 
 class ChatRoom extends React.Component {
   constructor(props) {
@@ -84,17 +85,52 @@ class ChatRoom extends React.Component {
     }
   }
 
-  listMembers() {
-    if (window.__chatbox_3box) {
-      window.__chatbox_3box.state.thread.listMembers();
+  listMembers = async () => {
+    const thread = await this.getThread();
+    if (thread) {
+      return await thread.listMembers();
     } else {
       return null;
     }
   }
 
-  listModerators() {
+  listModerators = async () => {
+    const thread = await this.getThread();
+    if (thread) {
+      return await thread.listModerators();
+    } else {
+      return null;
+    }
+  }
+
+  getChatHistory = async (count) => {
+    const thread = await this.getThread();
+    if (thread) {
+      const posts = await thread.getPosts(count);
+      return await decorateHistory(posts);
+    } else {
+      return null;
+    }
+  }
+
+  waitForThread = (thread) => {
+    return new Promise((resolve, reject) => {
+      const verify = () => {
+        if (thread && thread.getPosts) {
+          resolve(true);
+        } else {
+          setTimeout(() => verify(), 500);
+        }
+      }
+      verify();
+    })
+  }
+
+  getThread = async () => {
     if (window.__chatbox_3box) {
-      window.__chatbox_3box.state.thread.listModerators();
+      const thread = window.__chatbox_3box.state.thread;
+      await this.waitForThread(thread);
+      return thread;
     } else {
       return null;
     }
