@@ -132,14 +132,19 @@ posts = await chat.getPosts(20)
 console.log(posts)
 ```
 
-You can also fetch the chat history in Browser in real time, without providing the `appName`, `channelName` and `organizer` parametes.
+You can also list the members, moderators, and fetch the chat history in Browser in real time, without providing the `appName`, `channelName` and `organizer` parametes.
 
 ```js
-let posts = await window.smart_chat.getChatHistory();
-console.log(posts);
+// window.smart_chat is the instance of the ChatRoom
+
+const members = await window.smart_chat.listMembers()
+const moderaors = await window.smart_chat.listModerators()
+
+let posts = await window.smart_chat.getChatHistory()
+console.log(posts)
 
 // you can also specify a number of posts you want
-posts = await window.smart_chat.getChatHistory(20);
+posts = await window.smart_chat.getChatHistory(20)
 console.log(posts)
 ```
 
