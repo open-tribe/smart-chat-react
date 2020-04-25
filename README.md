@@ -135,11 +135,11 @@ console.log(posts)
 You can also fetch the chat history in Browser in real time, without providing the `appName`, `channelName` and `organizer` parametes.
 
 ```js
-let posts = await window.smart_window.getChatHistory();
+let posts = await window.smart_chat.getChatHistory();
 console.log(posts);
 
 // you can also specify a number of posts you want
-posts = await window.smart_window.getChatHistory(20);
+posts = await window.smart_chat.getChatHistory(20);
 console.log(posts)
 ```
 
