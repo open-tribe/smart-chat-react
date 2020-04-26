@@ -13,24 +13,21 @@ class Example extends React.Component {
   }
 
   async componentDidMount() {
-    // test chat APIs
-    setTimeout(async () => {
-      const chat = await getChat('Experiment', 'chatbox', this.state.myAddress);
-      const posts = await chat.getHistory({limit: 5});
-      console.log('last 5 posts', posts);
+    const addresses = await window.ethereum.enable();
+    const myAddress = addresses[0];
 
-      // on update
-      chat.onUpdate(() => {
-        chat.getHistory({limit: 1}).then(res => {
-          console.log('latest post', res);
-        })
-      });
-    }, 5000);
+    // get chat history
+    const chat = await getChat('Experiment', 'chatbox', myAddress);
+    let posts = await chat.getHistory({limit: 5});
+    console.log('last 5 posts', posts);
 
-    setTimeout(async () => {
-      const posts = await window.smart_chat.getHistory();
-      console.log('all posts', posts);
-    }, 5000);
+    this.setState({ myAddress })
+  }
+
+  onUpdate = () => {
+    window.smart_chat.getHistory({ limit: 2}).then(posts => {
+      console.log('onUpdate: last 2 posts', posts);
+    })
   }
 
   render() {
@@ -55,6 +52,7 @@ class Example extends React.Component {
               moderators={[myAddress]}
               colorTheme="#0D9DF4"
               popup
+              onUpdate={this.onUpdate}
             />
           </div>
         </div>

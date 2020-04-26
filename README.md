@@ -89,6 +89,7 @@ const Chat = props => {
 }
 ```
 
+You can also refer to [here](https://github.com/open-tribe/smart-chat-react/blob/master/examples/Example.js) as a more complete working example.
 
 #### Prop Types
 
@@ -105,6 +106,7 @@ const Chat = props => {
 | `colorTheme`    | String/Boolean       |  False  | Optional    | Pass an rgb or hex color string to match the color theme of your application |
 | `popup`    | Boolean       |  False   | Optional    | A boolean - `true` - to configure a pop up style chatbox with a button fixed to the bottom right of the window to pop open the chat UI. False will render the component in whichever container you have implemented. |
 | `iconUrl`    | String       |    | Optional    | Set the icon for the chat window |
+| `onUpdate`    | Function    |    | Optional    | The callback function which is called when new messages arrive |
 
 ### 3. Use chat APIs
 
