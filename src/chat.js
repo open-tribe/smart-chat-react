@@ -3,7 +3,12 @@ import resolve from 'did-resolver';
 
 export const getChat = async (appName, channelName, organizer) => {
   const box = await Box.create()
-  return await box.openThread(appName, channelName, { firstModerator: organizer, members: true })
+  const thread = await box.openThread(appName, channelName, { firstModerator: organizer, members: true })
+  thread.getHistory = async (count) => {
+    const posts = await thread.getPosts(count);
+    return await decorateHistory(posts);
+  }
+  return thread;
 }
 
 export const getPosts = async (appName, channelName, organizer) => {
@@ -38,5 +43,18 @@ export const decorateHistory = async (posts) => {
   } else {
     return posts;
   }
+}
+
+export const waitForThread = (thread) => {
+  return new Promise((resolve, reject) => {
+    const verify = () => {
+      if (thread && thread.getPosts) {
+        resolve(true);
+      } else {
+        setTimeout(() => verify(), 500);
+      }
+    }
+    verify();
+  })
 }
 

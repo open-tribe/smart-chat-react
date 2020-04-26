@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ChatRoom from '../src/index';
+import ChatRoom, { getChat } from '../src/index';
 
 import './index.css';
 
@@ -10,6 +10,20 @@ class Example extends React.Component {
     this.state = {
       myAddress: window.ethereum.selectedAddress
     }
+  }
+
+  async componentDidMount() {
+    // test chat APIs
+    setTimeout(async () => {
+      const chat = await getChat('Experiment', 'chatbox', this.state.myAddress);
+      const posts = await chat.getHistory();
+      console.log('history1', posts);
+    }, 5000);
+
+    setTimeout(async () => {
+      const posts = await window.smart_chat.getHistory();
+      console.log('history2', posts);
+    }, 5000);
   }
 
   render() {

@@ -3,7 +3,7 @@ import Box from '3box';
 
 import ChatBox from '3box-chatbox-react-enhanced';
 import { filter } from './helper';
-import { decorateHistory } from './chat';
+import { decorateHistory, waitForThread } from './chat';
 
 class ChatRoom extends React.Component {
   constructor(props) {
@@ -103,7 +103,7 @@ class ChatRoom extends React.Component {
     }
   }
 
-  getChatHistory = async (count) => {
+  getHistory = async (count) => {
     const thread = await this.getThread();
     if (thread) {
       const posts = await thread.getPosts(count);
@@ -113,23 +113,10 @@ class ChatRoom extends React.Component {
     }
   }
 
-  waitForThread = (thread) => {
-    return new Promise((resolve, reject) => {
-      const verify = () => {
-        if (thread && thread.getPosts) {
-          resolve(true);
-        } else {
-          setTimeout(() => verify(), 500);
-        }
-      }
-      verify();
-    })
-  }
-
   getThread = async () => {
     if (window.__chatbox_3box) {
       const thread = window.__chatbox_3box.state.thread;
-      await this.waitForThread(thread);
+      await waitForThread(thread);
       return thread;
     } else {
       return null;
