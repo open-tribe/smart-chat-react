@@ -1,6 +1,6 @@
 {
   "name": "smart-chat-react",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Build on-chain logic into off-chain communication tools",
   "main": "./lib/index.js",
   "scripts": {
