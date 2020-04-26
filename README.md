@@ -128,25 +128,42 @@ let posts = await chat.getHistory()
 console.log(posts)
 
 // you can also specify a number of posts you want
-posts = await chat.getHistory(20)
+posts = await chat.getHistory({limit: 20})
 console.log(posts)
+
+// you may also want to listen on update
+chat.onUpdate(() => {
+  chat.getHistory({limit: 1}).then(res => {
+    console.log('latest post', res)
+  })
+})
 ```
 
 You can also list the members, moderators, and fetch the chat history in Browser in real time, without providing the `appName`, `channelName` and `organizer` parametes.
 
 ```js
 // window.smart_chat is the instance of the ChatRoom
+const chat = window.smart_chat
 
-const members = await window.smart_chat.listMembers()
-const moderaors = await window.smart_chat.listModerators()
+const members = await chat.listMembers()
+const moderaors = await chat.listModerators()
 
-let posts = await window.smart_chat.getHistory()
+let posts = await chat.getHistory()
 console.log(posts)
 
 // you can also specify a number of posts you want
-posts = await window.smart_chat.getHistory(20)
+posts = await chat.getHistory({limit: 20})
 console.log(posts)
+
+// you may also want to listen on update
+chat.onUpdate(() => {
+  chat.getHistory({limit: 1}).then(res => {
+    console.log('latest post', res)
+  })
+})
 ```
+
+More options of the `getHistory` function can be found in [`thread.getPosts(opts)`](https://github.com/3box/3box-js#threadgetpostsopts--arrayobject)
 
 An example of chat history:
 

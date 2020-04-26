@@ -16,13 +16,20 @@ class Example extends React.Component {
     // test chat APIs
     setTimeout(async () => {
       const chat = await getChat('Experiment', 'chatbox', this.state.myAddress);
-      const posts = await chat.getHistory();
-      console.log('history1', posts);
+      const posts = await chat.getHistory({limit: 5});
+      console.log('last 5 posts', posts);
+
+      // on update
+      chat.onUpdate(() => {
+        chat.getHistory({limit: 1}).then(res => {
+          console.log('latest post', res);
+        })
+      });
     }, 5000);
 
     setTimeout(async () => {
       const posts = await window.smart_chat.getHistory();
-      console.log('history2', posts);
+      console.log('all posts', posts);
     }, 5000);
   }
 

@@ -113,6 +113,15 @@ class ChatRoom extends React.Component {
     }
   }
 
+  onUpdate = async (callback) => {
+    const thread = await this.getThread();
+    if (thread) {
+      return thread.onUpdate(callback);
+    } else {
+      return null;
+    }
+  }
+
   getThread = async () => {
     if (window.__chatbox_3box) {
       const thread = window.__chatbox_3box.state.thread;
