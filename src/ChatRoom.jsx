@@ -150,7 +150,8 @@ class ChatRoom extends React.Component {
       colorTheme,
       iconUrl,
       secret,
-      onUpdate
+      onUpdate,
+      onError
     } = this.props;
 
     const agentProfile = {
@@ -203,6 +204,7 @@ class ChatRoom extends React.Component {
 
         // callbacks
         onUpdate={onUpdate}
+        onError={onError}
       />
     );
   }

@@ -1,6 +1,6 @@
 {
   "name": "smart-chat-react",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "Build on-chain logic into off-chain communication tools",
   "main": "./lib/index.js",
   "scripts": {
@@ -30,7 +30,7 @@
   "homepage": "https://github.com/open-tribe/smart-chat-react#readme",
   "dependencies": {
     "3box": "^1.17.1",
-    "3box-chatbox-react-enhanced": "^0.1.16",
+    "3box-chatbox-react-enhanced": "^0.1.17",
     "did-resolver": "0.0.7",
     "react": "^16.13.1",
     "react-dom": "^16.6.0",

@@ -107,6 +107,7 @@ You can also refer to [here](https://github.com/open-tribe/smart-chat-react/blob
 | `popup`    | Boolean       |  False   | Optional    | A boolean - `true` - to configure a pop up style chatbox with a button fixed to the bottom right of the window to pop open the chat UI. False will render the component in whichever container you have implemented. |
 | `iconUrl`    | String       |    | Optional    | Set the icon for the chat window |
 | `onUpdate`    | Function    |    | Optional    | The callback function which is called when new messages arrive |
+| `onError`    | Function     |    | Optional    | The callback function which is called when failed to send message to the chat. Parameters of (error, data, showError) will be sent to `onError`. `error` is the error thrown when failed, `data` contains the info membership data, and `showError` is the function to show error message which accepts `message` as its parameter |
 
 ### 3. Use chat APIs
 
@@ -174,6 +175,10 @@ An example of chat history:
 {"postId": "zdpuAnAVvRyR2zoCZn9xps2ksoLHshanA874ereMixLqspPcS", "author": "did:3:bafyre...", "message": "how are you", "timestamp": 1587051155, "address": "0xf4398..."}
 {"postId": "zdpuAmz7sQpvjyvCmQbpjtyALE29VA5AWvFtB9GndPEBjMTCN", "author": "did:3:bafhij...", "message": "awesome", "timestamp": 1587051171, "address": "0xghe3w..."}
 ```
+
+## Release Notes
+
+- v0.1.12: (1) add `onError` callback for customizing error message and handling when failed to send message; (2) embed images and videos for URL preview in chat window.
 
 ## License
 
