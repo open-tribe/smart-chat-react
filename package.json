@@ -1,6 +1,6 @@
 {
   "name": "smart-chat-react",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "Build on-chain logic into off-chain communication tools",
   "main": "./lib/index.js",
   "scripts": {
@@ -31,11 +31,11 @@
   "dependencies": {
     "3box": "^1.17.1",
     "3box-chatbox-react-enhanced": "^0.1.17",
-    "did-resolver": "0.0.7",
-    "react": "^16.13.1",
-    "react-dom": "^16.6.0",
-    "react-hot-loader": "^4.12.18",
-    "webpack": "^4.9.1"
+    "did-resolver": "0.0.7"
+  },
+  "peerDependencies": {
+    "react": ">= 16.3.0",
+    "react-dom": ">= 16.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -54,6 +54,9 @@
     "style-loader": "^0.23.1",
     "svg-inline-loader": "^0.8.0",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-dev-server": "^3.10.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.6.0",
+    "webpack": "^4.9.1"
   }
 }
