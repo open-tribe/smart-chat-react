@@ -24,10 +24,15 @@ class Example extends React.Component {
     this.setState({ myAddress })
   }
 
-  onUpdate = () => {
+  onUpdate = ({ messages }) => {
+    console.log("updated messages", messages);
     window.smart_chat.getHistory({ limit: 2}).then(posts => {
       console.log('onUpdate: last 2 posts', posts);
     })
+  }
+
+  onLoad = ({ messages }) => {
+    console.log("loaded messages", messages);
   }
 
   render() {
@@ -52,6 +57,7 @@ class Example extends React.Component {
               moderators={[myAddress]}
               colorTheme="#0D9DF4"
               popup
+              onLoad={this.onLoad}
               onUpdate={this.onUpdate}
             />
           </div>

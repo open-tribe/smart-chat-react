@@ -106,7 +106,8 @@ You can also refer to [here](https://github.com/open-tribe/smart-chat-react/blob
 | `colorTheme`    | String/Boolean       |  False  | Optional    | Pass an rgb or hex color string to match the color theme of your application |
 | `popup`    | Boolean       |  False   | Optional    | A boolean - `true` - to configure a pop up style chatbox with a button fixed to the bottom right of the window to pop open the chat UI. False will render the component in whichever container you have implemented. |
 | `iconUrl`    | String       |    | Optional    | Set the icon for the chat window |
-| `onUpdate`    | Function    |    | Optional    | The callback function which is called when new messages arrive |
+| `onLoad({messages, likes, thread})`    | Function       |    | Optional    | The callback function which is called when the chat messages are loaded for the first time. The chat history of `messages` and `likes`, and the `thread` object will be returned |
+| `onUpdate({messages, likes, thread})`    | Function       |    | Optional    | The callback function which is called when messages arrive. The `messages` and `likes` contains all the messages and likes |
 | `onError`    | Function     |    | Optional    | The callback function which is called when failed to send message to the chat. Parameters of (error, data, showError) will be sent to `onError`. `error` is the error thrown when failed, `data` contains the info membership data, and `showError` is the function to show error message which accepts `message` as its parameter |
 
 ### 3. Use chat APIs

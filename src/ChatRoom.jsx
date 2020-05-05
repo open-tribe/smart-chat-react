@@ -113,12 +113,27 @@ class ChatRoom extends React.Component {
     }
   }
 
-  onUpdate = async (callback) => {
-    const thread = await this.getThread();
-    if (thread) {
-      return thread.onUpdate(callback);
-    } else {
-      return null;
+  onUpdate = async ({ messages, likes, thread }) => {
+    const { onUpdate } = this.props;
+    if (onUpdate && typeof (onUpdate) === 'function') {
+      messages = await decorateHistory(messages);
+      onUpdate({
+        messages,
+        likes,
+        thread
+      });
+    }
+  }
+
+  onLoad = async ({ messages, likes, thread }) => {
+    const { onLoad } = this.props;
+    if (onLoad && typeof (onLoad) === 'function') {
+      messages = await decorateHistory(messages);
+      onLoad({
+        messages,
+        likes,
+        thread
+      });
     }
   }
 
@@ -150,7 +165,6 @@ class ChatRoom extends React.Component {
       colorTheme,
       iconUrl,
       secret,
-      onUpdate,
       onError
     } = this.props;
 
@@ -203,7 +217,8 @@ class ChatRoom extends React.Component {
         agentProfile={agentProfile}
 
         // callbacks
-        onUpdate={onUpdate}
+        onLoad={this.onLoad}
+        onUpdate={this.onUpdate}
         onError={onError}
       />
     );
